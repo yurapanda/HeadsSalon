@@ -22,21 +22,15 @@
 }
 
 .navbar {
-    -webkit-box-shadow: 0 8px 6px -6px #999;
+/*    -webkit-box-shadow: 0 8px 6px -6px #999;
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 8px 6px -6px #999;
 
-    /* the rest of your styling */
+    /* shadow styling */
 }
 
-.navbar-inverse {
-    background-color: #000;
-    border-color: #000000;
-}
-.navbar-inverse .navbar-nav > li > a:hover {
-	color: #7D7272;
 
-}
+
 .navbar-inverse .navbar-nav > li > a {
     color: #FFFFFF;
 }
@@ -55,3 +49,8 @@
     text-decoration: none;
   }
 }
+
+
+img.image-rounded {
+    border-radius: 50% !important;
+    }

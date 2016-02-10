@@ -1,0 +1,2 @@
+module SalonEmployeesHelper
+end

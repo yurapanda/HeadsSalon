@@ -1,0 +1,26 @@
+<%= simple_form_for @salon_employee, html: { multipart: true} do |f| %>
+  <% if @salon_employee.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+   <h2>salon_employee <unsuccessful></unsuccessful>, 
+     there is/are <%= pluralize(@salon_employee.errors.count, "error") %>.</h2>
+     prevented this salon_employee from saving
+
+       <% @salon_employee.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %> 
+
+<div class="form-group">
+<%= f.input :name, input_html: {class: 'form-control'} %>
+<%= f.input :avatar, as: :file %>
+</div>
+<div class="form-group">
+
+<%= f.input :description, label: "Description",input_html: {class: 'col-md-9'} %>
+
+<%= f.button :submit, class: 'btn btn-primary' %>
+</div>
+<% end %>

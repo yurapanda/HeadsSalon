@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
 
  
+  resources :salon_employees
+  resources :appointments
   devise_for :users
   resources :services
 

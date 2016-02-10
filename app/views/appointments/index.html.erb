@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+     <% if current_user.email == "jerrome@example.com"%>
+      <%= link_to 'Add New Offered appointment', new_appointment_path, class: "btn btn-default" %>
+    <%end %>
+<% end %>
+
+
+<table class="table table-striped">
+ 
+    <tr>
+      <th>Name</th>
+      <th>Scheduled Time</th>
+    
+    </tr>
+
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= link_to appointment.name, appointment%></td>
+        <td><%= appointment.start_time.strftime("%B %d %I:%M %p") %></td>
+  
+    <% if user_signed_in? %>
+        <% if current_user.email == "jerrome@example.com"%>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
+    <% end %>
+      </tr>
+    <% end %>
+
+</table>
+
+<br>
+    
+
+<%= link_to 'Back', :back , class: "btn btn-default" %>

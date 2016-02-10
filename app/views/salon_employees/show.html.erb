@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+ <div class="well well-lg">
+ <div class="row">
+ 	<div class="col-md-4 col-sm-4">
+ 	<%= image_tag @salon_employee.avatar.url(:medium), class: "image-rounded" %>
+	</div>
+	<div class="col-md-8 col-sm-8">
+  <h4><strong>Name:</strong>		<%= @salon_employee.name %></h4>
+  <h4><strong>Description:</strong>	<%= @salon_employee.description %></h4>
+  </div>
+  </div>
+  </div>
+
+<% if user_signed_in? %>
+   <% if current_user.email == "jerrome@example.com"%>
+<%= link_to 'Edit', edit_salon_employee_path(@salon_employee), class: "btn btn-default" %> |
+<%= link_to 'Back', salon_employees_path, class: "btn btn-default" %>
+<% end %>
+<% end %>

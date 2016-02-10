@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+     <% if current_user.email == "jerrome@example.com"%>
+      <%= link_to 'Add New Salon Employee', new_salon_employee_path, class: "btn btn-default" %>
+      <br>
+      <br>
+    <%end %>
+<% end %>
+
+
+
+
+    
+  <div class="row">
+
+    <% @salon_employees.each do |salon_employee| %>
+      <div class="col-sm-6 col-md-5 col-lg-4">
+      <div class="panel panel-default">
+      <div class="panel-heading">
+       <center> <%= image_tag salon_employee.avatar.url(:medium), class: "image-rounded"%></center>
+        </div>
+      <div class="panel-body">
+         <h3><center> <%= link_to salon_employee.name, salon_employee, class: "caption"%></center></h3><hr>
+         <p><center> <%= salon_employee.description %></center></p>
+
+            <% if user_signed_in? %>
+            <hr>
+                <% if current_user.email == "jerrome@example.com"%>
+                <%= link_to 'Edit', edit_salon_employee_path(salon_employee), class: "btn btn-default" %>
+                <%= link_to 'Delete', salon_employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                <br>
+                <%end %>
+            <% end %>
+       </div>
+
+ </div>
+
+</div>
+    <% end %>
+
+
+<br>
+    </p></div>
+
+<%= link_to 'Back', :back , class: "btn btn-default" %>

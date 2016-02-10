@@ -4,6 +4,8 @@ class ServicesController < ApplicationController
 
   # GET /services
   # GET /services.json
+ 
+
   def index
     @services = Service.all
     @user = current_user
